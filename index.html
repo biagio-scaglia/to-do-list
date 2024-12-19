@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>To-Do List</h1>
+
+        <!-- Dashboard con statistiche -->
+        <div id="dashboard">
+            <p><strong>Totale attività:</strong> <span id="total-count">0</span></p>
+            <p><strong>Completate:</strong> <span id="completed-count">0</span></p>
+            <p><strong>Alta priorità:</strong> <span id="high-priority-count">0</span></p>
+        </div>
+
+        <!-- Filtri avanzati -->
+        <div id="filters" style="display: none;">
+            <input type="text" id="search" placeholder="Cerca attività..." class="search-bar">
+            <select id="priority-filter">
+                <option value="">Filtra per priorità</option>
+                <option value="Alta">Alta</option>
+                <option value="Media">Media</option>
+                <option value="Bassa">Bassa</option>
+            </select>
+            <select id="category-filter">
+                <option value="">Filtra per categoria</option>
+                <!-- Categories will be dynamically populated -->
+            </select>
+            <button id="clear-filters">Cancella filtri</button>
+        </div>
+
+        <!-- Ordinamento attività -->
+        <div id="sort-options" style="display: none;">
+            <select id="sort-by">
+                <option value="date">Ordina per data</option>
+                <option value="priority">Ordina per priorità</option>
+                <option value="completed">Ordina per completamento</option>
+            </select>
+        </div>
+
+        <!-- Form per aggiungere una nuova attività -->
+        <form id="todo-form">
+            <input type="text" id="name" placeholder="Nome attività" required />
+            <textarea id="description" placeholder="Descrizione" required></textarea>
+            <input type="number" id="duration" placeholder="Durata in ore" required />
+            <input type="text" id="category" placeholder="Categoria (es. Lavoro, Studio)" required />
+            <input type="date" id="due-date" required />
+            <select id="priority" required>
+                <option value="">Seleziona Priorità</option>
+                <option value="Bassa">Bassa</option>
+                <option value="Media">Media</option>
+                <option value="Alta">Alta</option>
+            </select>
+            <button type="submit">Aggiungi Attività</button>
+        </form>
+
+        <!-- Lista delle attività -->
+        <ul id="todo-list"></ul>
+
+        <!-- Pulsante per scaricare il report -->
+        <button id="download-report" class="download-btn">Scarica Report</button>
+
+        <!-- Pulsante per Anteprima Stampa -->
+        <button id="print-preview" class="download-btn">Anteprima Stampa</button>
+    </div><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+    <script src="app.js"></script>
+</body>
+</html>
